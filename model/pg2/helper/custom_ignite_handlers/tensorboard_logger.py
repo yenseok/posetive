@@ -87,6 +87,7 @@ class OutputHandler(BaseOutputHandler):
 
         metrics = self._setup_output_metrics(engine)
 
+        #수정1. self.another_engine 주석처리
         #engine = engine if self.another_engine is None else self.another_engine
         global_step = self.global_step_transform(engine, event_name)
 

@@ -41,6 +41,7 @@ mask_ratio = 1
 [loss.gan]
 weight = 1
 
+#수정1. 하이퍼파라미터 수정
 [model.generator1]
 num_repeat = 5
 middle_features_dim = 64
@@ -48,6 +49,7 @@ channels_base = 128
 image_size = [ 128, 64,]
 pretrained_path = "/model/pg2/checkpoints/PG2-1/G1.pth"
 
+#수정2. 하이퍼파라미터 수정
 [model.generator2]
 weight_init_way = "xavier"
 num_skip_out_connect = 1
@@ -58,6 +60,7 @@ pretrained_path = "/model/pg2/checkpoints/PG2-2/G2.pth"
 [model.discriminator]
 weight_init_way = "tflib"
 
+#수정3. 경로 수정
 [dataset.path.train]
 image = "/content/drive/MyDrive/sangwoo/budui/Human-Pose-Transfer/data/Market-1501-v15.09.15/bounding_box_train"
 bone = "/content/drive/MyDrive/kang/PG2/Human-Pose-Transfer-master/data/market/train/pose_map_image/"

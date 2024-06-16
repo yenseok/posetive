@@ -5,7 +5,10 @@ import os
 from argparse import ArgumentParser
 
 import numpy as np
+
+#수정1. circle -> disk
 from skimage.draw import disk
+
 from skimage.morphology import square, dilation, erosion
 
 # default value when HPM detect failed
@@ -47,6 +50,7 @@ def key_point_to_mask(key_points, img_size, radius=6):
     for i, joint in enumerate(list(key_points) + new_points):
         if KEY_POINT_MISSING_VALUE in joint:
             continue
+        #수정2. 매개변수 변경
         yy, xx = disk((joint[0], joint[1]), radius, shape=img_size)
         mask[yy, xx] = True
     mask = dilation(mask, square(radius + 3))
@@ -96,7 +100,7 @@ def compute_pose(annotations_file_path, map_save_path, mask_save_path, image_siz
         pose_mask = key_point_to_mask(key_points, image_size)
         np.save(os.path.join(mask_save_path, img_name + ".npy"), pose_mask)
 
-
+#수정3. Add generation_id attribute and Change path
 def main(dataset, d_type, generation_id):
     annotations_file_path = f"/model/generation/{generation_id}/annotation.csv".format(dataset=dataset, type=d_type)
     pose_map_save_path = f"/model/generation/{generation_id}/pose_map_image/".format(dataset=dataset, type=d_type)

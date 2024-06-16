@@ -43,7 +43,7 @@ IMPLEMENTED_ENGINE = {
     "PG2-Generator": "generate"
 }
 
-
+#수정3. dafault 값 변경
 def parse_argument(generation_id):
     parser = ArgumentParser("Train")
     parser.add_argument("implementation", type=str, default="PG2-Generator", choices=IMPLEMENTED_ENGINE.keys(), help="run which?")
@@ -64,6 +64,7 @@ def prepare_gpu(gpu_ids):
 def load_config(config_path, overwrite_tomls, generation_id):
     print("reading config from <{}>\n".format(path.abspath(config_path)))
     try:
+        #수정2. config path를 동적으로 받는다.
         with open(config_path, "+r") as f:
             config = toml.load(f)
             config["dataset"]["path"]["test"]["image"] = f"/model/generation/{generation_id}/"
@@ -90,9 +91,9 @@ def save_config(config, output_folder):
     with open(path.join(output_folder, "train.toml"), "w") as f:
         toml.dump(config, f)
 
-
+#수정1. 
+#add generation_id attribute
 def main(generation_id):
-    # options = parse_argument(generation_id)
     options_config = "/model/pg2/implementations/PG2/stage2.toml"
     options_gpu_id = 0
     options_implementation = "PG2-Generator"
@@ -116,7 +117,6 @@ def main(generation_id):
     print("#" * 80, "\n")
 
     engine.run(config)
-
 
 if __name__ == '__main__':
     main(generation_id)

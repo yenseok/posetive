@@ -2,7 +2,7 @@ from torch.utils.data import DataLoader, RandomSampler
 
 import dataset
 
-
+#수정1. batch_size = 1
 def get_data_loader(config):
     cfg = config["dataset"]["path"]["train"]
     image_dataset = dataset.PairBoneDataset(cfg["pair"], cfg["image"], cfg["bone"], cfg["mask"], cfg["annotation"],

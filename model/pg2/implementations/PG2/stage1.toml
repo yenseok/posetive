@@ -3,7 +3,7 @@ title = "PG2"
 description = """
 first try
 """
-
+#수정1. 경로수정
 [dataset]
     name = "market"
     [dataset.path.train]
@@ -24,6 +24,7 @@ first try
         weight = 10
         mask_ratio = 1
 
+#수정2. 하이퍼파라미터 수정
 [model]
     [model.generator1]
         num_repeat = 5
@@ -31,6 +32,7 @@ first try
         channels_base = 128
         image_size = [128, 64]
 
+#수정3. 하이퍼파라미터 수정
 [train]
     batch_size = 16
     num_epoch = 2

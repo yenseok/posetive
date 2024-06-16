@@ -16,7 +16,7 @@ IMPLEMENTED_GENERATOR = {
     "PG2-Generator": "implementations.PG2.generate",
 }
 
-
+#수정1. batch_size = 1
 def get_data_loader(config):
     cfg = config["dataset"]["path"]["test"]
     image_dataset = dataset.PairBoneDataset(cfg["pair"], cfg["image"], cfg["bone"], cfg["mask"], cfg["annotation"])
