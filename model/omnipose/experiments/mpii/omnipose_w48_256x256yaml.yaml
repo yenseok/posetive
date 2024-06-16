@@ -111,14 +111,14 @@ TRAIN:
   BATCH_SIZE_PER_GPU: 16
   SHUFFLE: true
   BEGIN_EPOCH: 0
-  END_EPOCH: 38
+  END_EPOCH: 38 # 수정1 : 에포크 수 210 -> 38로 조정
   OPTIMIZER: adam
-  LR: 0.0001
+  LR: 0.0000005 # 수정2 : LR 값 0.0001 -> 0.0000005로 조정
   LR_FACTOR: 0.1
   LR_STEP:
   - 170
   - 200
-  WD: 0.0001
+  WD: 0.001 # 수정3 : WD 값 0.0001 -> 0.001로 조정
   GAMMA1: 0.99
   GAMMA2: 0.0
   MOMENTUM: 0.9

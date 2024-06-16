@@ -137,6 +137,7 @@ class MPIIDataset(JointsDataset):
 
         jnt_visible = 1 - jnt_missing
 
+        # 수정1: pos pred src와 pos gt src의 shape 일치
         min_length_src = min(pos_pred_src.shape[2], pos_gt_src.shape[2])
         pos_pred_src_trimmed = pos_pred_src[:, :, :min_length_src]
         pos_gt_src_trimmed = pos_gt_src[:, :, :min_length_src]
@@ -148,11 +149,13 @@ class MPIIDataset(JointsDataset):
         headsizes *= SC_BIAS
         scale = np.multiply(headsizes, np.ones((len(uv_err), 1)))
 
+        # 수정2: uv_err와 scale의 shape 일치
         min_length_uv = min(uv_err.shape[1], scale.shape[1])
         uv_err_trimmed = uv_err[:, :min_length_uv]
         scale_trimmed = scale[:, :min_length_uv]
         scaled_uv_err = np.divide(uv_err_trimmed, scale_trimmed)
 
+        # 수정3: scale_uv_err와 jnt_visible의 shape 일치
         min_length = min(scaled_uv_err.shape[1], jnt_visible.shape[1])
         scaled_uv_err_trimmed = scaled_uv_err[:, :min_length]
         jnt_visible_trimmed = jnt_visible[:, :min_length]
@@ -160,6 +163,7 @@ class MPIIDataset(JointsDataset):
 
         jnt_count = np.sum(jnt_visible, axis=1)
         
+        # 수정4: PCKh의 에러 threshold 수정
         threshold_array = np.tile(threshold, (1, scaled_uv_err.shape[1]))
         less_than_threshold = np.multiply((scaled_uv_err <= threshold_array),
                                           jnt_visible_trimmed)

@@ -108,15 +108,7 @@ def parse_args():
     return args
 
 
-def transform_coords(coords, original_size, model_input_size=(384, 288)):
-    orig_height, orig_width = original_size
-    model_height, model_width = model_input_size
-    scale_x = orig_width / model_width
-    scale_y = orig_height / model_height
-    transformed_coords = [(int(x * scale_x), int(y * scale_y)) for x, y in coords]
-    return transformed_coords
-
-
+# 수정1: 관절 json 출력을 위한 joint dict
 def map_joint_dict(joints):
     joints_dict = {}
     for i in range(joints.shape[0]):
@@ -126,6 +118,8 @@ def map_joint_dict(joints):
         joints_dict[id] = (x, y)
         
     return joints_dict
+
+
 
 def plot_MPII_image(preds, img_path, save_path, link_pairs, ring_color, color_ids, save=True):
     # Read Images
@@ -154,7 +148,6 @@ def plot_MPII_image(preds, img_path, save_path, link_pairs, ring_color, color_id
     #         line.set_zorder(0)
     #         ax.add_line(line)
             
-    # black ring
     for k in range(preds.shape[1]):
         if preds[0,k,0] > w or preds[0,k,1] > h:
             continue
@@ -177,7 +170,7 @@ def plot_MPII_image(preds, img_path, save_path, link_pairs, ring_color, color_id
     plt.savefig(save_path, format='jpg', bbox_inches='tight', pad_inches=0)
     plt.close()
 
-
+# 수정2: json 저장 코드
 def save_all_keypoints_to_json(all_preds, save_path):
     with open(save_path, 'w') as f:
         json.dump(all_preds, f, indent=4)
@@ -203,7 +196,7 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-
+# 수정 3: 이미지 center, scale 계산을 위한 bbox 형성
 def calculate_bbox_info(joints):
     visible_joints = [joint for joint in joints if joint[0] > 0 and joint[1] > 0]
     if not visible_joints:
@@ -332,10 +325,12 @@ def main(args):
     output_image_path = os.path.join(output_dir, args.output_image_name)
     plot_MPII_image(preds, img_path, output_image_path, colorstyle.link_pairs, colorstyle.ring_color, colorstyle.color_ids, save=True)
 
+   # 수정4: pg2 입력을 위한 데이터 후처리
     output_image = cv2.imread(output_image_path)
     resized_image = cv2.resize(output_image, (64, 128), interpolation=cv2.INTER_AREA)
     cv2.imwrite(output_image_path, resized_image)
 
+    # 수정4: 후처리된 데이터에 적합한 json 출력
     width_ratio = 64 / 384
     height_ratio = 128 / 288
     resized_joints = [[x * width_ratio, y * height_ratio] for x, y in joints]
