@@ -80,6 +80,10 @@ pg2.run.main(generation_id)
 ### Files we modified from the existing implementation
 
 - OmniPose
+  - ./model/omnipose/train.py
+  - ./model/omnipose/inference.py
+  - ./model/omnipose/dataset/mpii.py
+  - ./model/omnipose/experiments/mpii/omnipose_w48_256x256yaml.yaml
 - PG2
   - ./model/pg2/run.py
   - ./model/pg2/generate.py
