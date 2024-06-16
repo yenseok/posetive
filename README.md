@@ -81,7 +81,15 @@ pg2.run.main(generation_id)
 
 - OmniPose
 - PG2
-
+  - ./model/pg2/run.py
+  - ./model/pg2/generate.py
+  - ./model/pg2/tool/generate_pose_map_add_mask.py
+  - ./model/pg2/helper/custom_ignite_handlers/tensorboard_logger.py
+  - ./model/pg2/implementations/PG2/data.py
+  - ./model/pg2/implementations/PG2/stage1.toml
+  - ./model/pg2/implementations/PG2/stage2.toml
+- PE2PG (created)
+  - ./model/pe2pg.py
 
 
 ## Members
