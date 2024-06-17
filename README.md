@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 ### Download Weights
 
-1. Download trained weights from [Google Drive](https://drive.google.com/drive/folders/1QBQpteHk6BP96RJ52Dy3vSEBtvLekmLe?usp=sharing)
+1. Download trained weights from [Google Drive](https://drive.google.com/drive/folders/13dNqd87sLI6MbrxH9FloHBxah3atAJpa?usp=drive_link)
 
 2. Then, these weights should be organized as follows:
 
