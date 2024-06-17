@@ -1,6 +1,9 @@
 # 픽토그램 포즈 기반 사람 이미지 생성 모델
 
-## Installation
+## 🚀 Live Demo
+A demo available at [here](https://posetive.kr)
+
+## ⚒️ Installation
 
 ### Build Environment
 We recommend a python version `=3.9.12` and cuda version `=11.6`.
@@ -34,7 +37,7 @@ pip install -r requirements.txt
 
 
 
-## Inference
+## 🖌️ Inference
 
 ### Method 1) With Flask Server
 
@@ -75,7 +78,7 @@ pg2.run.main(generation_id)
 
 
 
-## What We Modified
+## 📝 What We Modified
 
 ### Files we modified from the existing implementation
 
@@ -96,7 +99,7 @@ pg2.run.main(generation_id)
   - ./model/pe2pg.py
 
 
-## Members
+## 🤗 Members
 
 [강병욱](https://github.com/plain127), [김태인](https://github.com/Kim-Taein), [석예은](https://github.com/yenseok), [윤지현](https://github.com/Yoonnnnnnnnnn), [이진주](https://github.com/2realzoo), [한상우](https://github.com/1upright), [홍정현](https://github.com/JeonghyunHong)
 
