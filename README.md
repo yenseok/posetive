@@ -1,8 +1,5 @@
 # 픽토그램 포즈 기반 사람 이미지 생성 모델
 
-## 🚀 Live Demo
-A demo available at [here](https://posetive.kr)
-
 ## ⚒️ Installation
 
 ### Build Environment
