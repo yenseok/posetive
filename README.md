@@ -1,15 +1,20 @@
 # 픽토그램 포즈 기반 사람 이미지 생성 모델
 
-## 서비스 화면
 ## 💻 서비스 화면
 
-| 화면 1 | 화면 2 | 화면 3 |
-|--------|--------|--------|
-| ![](docs/p1.png) | ![](docs/p2.png) | ![](docs/p3.png) |
+<table>
+  <tr>
+    <td><img src="docs/p1.png" width="300"/></td>
+    <td><img src="docs/p2.png" width="300"/></td>
+    <td><img src="docs/p3.png" width="300"/></td>
+  </tr>
+  <tr>
+    <td><img src="docs/p4.png" width="300"/></td>
+    <td><img src="docs/p5.png" width="300"/></td>
+    <td><img src="docs/p6.png" width="300"/></td>
+  </tr>
+</table>
 
-| 화면 4 | 화면 5 | 화면 6 |
-|--------|--------|--------|
-| ![](docs/p4.png) | ![](docs/p5.png) | ![](docs/p6.png) |
 
 
 ## ⚒️ Installation
